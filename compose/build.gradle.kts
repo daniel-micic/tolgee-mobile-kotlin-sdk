@@ -29,9 +29,7 @@ dokka {
 }
 
 kotlin {
-    androidTarget {
-        publishAllLibraryVariants()
-    }
+
     jvm {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
@@ -82,6 +80,12 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_21
+    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 

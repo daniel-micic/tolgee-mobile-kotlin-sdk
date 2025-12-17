@@ -53,7 +53,7 @@ skie {
 
 kotlin {
     androidTarget {
-        publishAllLibraryVariants()
+        publishLibraryVariants("release")
     }
 
     androidNativeX64()
