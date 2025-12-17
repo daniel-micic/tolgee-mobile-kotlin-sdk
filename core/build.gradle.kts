@@ -264,6 +264,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_21
     }
+
+    publishing {
+        singleVariant("release") {  // Use double quotes, not single quotes
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 mavenPublishing {
