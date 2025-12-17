@@ -30,38 +30,6 @@ public class MainJavaActivity extends ComponentActivity implements Tolgee.Change
         tolgee.addChangeListener(this);
 
         setContentView(R.layout.activity_main);
-
-        // Make sure the app title stays updated
-        setTitle(R.string.app_name);
-
-        TextView name = findViewById(R.id.app_name_text);
-        TextView basic = findViewById(R.id.basic_text);
-        TextView parameter = findViewById(R.id.parameterized_text);
-        TextView plural = findViewById(R.id.plural_text);
-        TextView array = findViewById(R.id.array_text);
-        Button buttonEn = findViewById(R.id.button_en);
-        Button buttonFr = findViewById(R.id.button_fr);
-        Button buttonCs = findViewById(R.id.button_cs);
-
-        // Update texts within the app with translated ones
-        name.setText(getString(R.string.app_name));
-        basic.setText(getString(R.string.description));
-        parameter.setText(getString(R.string.percentage_placeholder, "87"));
-        plural.setText(getResources().getQuantityString(R.plurals.plr_test_placeholder_2, 2, 3, "Plurals"));
-        array.setText(String.join(", ", getResources().getStringArray(R.array.array_test)));
-
-        buttonEn.setOnClickListener(v -> {
-            tolgee.setLocale(Locale.ENGLISH);
-            tolgee.preload(this);
-        });
-        buttonFr.setOnClickListener(v -> {
-            tolgee.setLocale(Locale.FRENCH);
-            tolgee.preload(this);
-        });
-        buttonCs.setOnClickListener(v -> {
-            tolgee.setLocale("cs");
-            tolgee.preload(this);
-        });
     }
 
     @Override

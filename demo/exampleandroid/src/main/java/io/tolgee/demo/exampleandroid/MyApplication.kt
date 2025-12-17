@@ -11,7 +11,7 @@ class MyApplication : Application() {
 
     Tolgee.init {
       contentDelivery {
-        url = "https://cdn.tolg.ee/96eacb8b07382b60c3f94b30405cc49b"
+        url = "https://cdn.tolg.ee/d8698fc0f02bedcee2757d4525e05146"
         storage = TolgeeStorageProviderAndroid(this@MyApplication, BuildConfig.VERSION_CODE)
       }
     }

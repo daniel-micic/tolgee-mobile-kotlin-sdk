@@ -9,7 +9,6 @@ plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.serialization)
     alias(libs.plugins.vanniktech.publish)
-    `maven-publish`
     signing
 }
 

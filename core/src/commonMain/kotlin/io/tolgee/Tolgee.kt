@@ -279,7 +279,10 @@ open class Tolgee(
      * @param localeTag A string representation of the desired locale.
      */
     @JvmOverloads
-    open fun setLocale(localeTag: String) = setLocale(forLocaleTag(localeTag))
+    open fun setLocale(localeTag: String) {
+        var locale = forLocaleTag(localeTag)
+        setLocale(locale)
+    }
 
     /**
      * Gets the current locale for the Tolgee instance.

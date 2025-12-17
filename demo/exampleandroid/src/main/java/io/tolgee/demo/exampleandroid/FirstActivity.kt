@@ -1,6 +1,7 @@
 package io.tolgee.demo.exampleandroid
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -11,7 +12,7 @@ import io.tolgee.TolgeeContextWrapper
 import kotlinx.coroutines.launch
 import java.util.Locale
 
-class MainActivity : ComponentActivity() {
+class FirstActivity : ComponentActivity() {
 
   val tolgee = Tolgee.instance
 
@@ -31,33 +32,22 @@ class MainActivity : ComponentActivity() {
 //      }
 //    }
 
-    setContentView(R.layout.activity_main)
+    setContentView(R.layout.activity_first)
 
     // Make sure the app title stays updated
+    setTitle(R.string.menu_developer_options_label)
 
+    val buttonEn = findViewById<Button>(R.id.button_next)
 
-    val name = findViewById<TextView>(R.id.app_name_text)
-    val buttonEn = findViewById<Button>(R.id.button_en)
-    val buttonFr = findViewById<Button>(R.id.button_fr)
-    val buttonCs = findViewById<Button>(R.id.button_cs)
 
 
     // Update texts within the app with translated ones
-
+//    name.text = getString(R.string.menu_developer_options_label)
 
     buttonEn.setOnClickListener {
-      tolgee.setLocale(Locale.ENGLISH)
-      tolgee.preload(this)
+      startActivity(Intent(this, MainActivity::class.java))
     }
-    buttonFr.setOnClickListener {
-      var locale = Locale("zh-Hans")
-      tolgee.setLocale("zh-Hans")
-      tolgee.preload(this)
-    }
-    buttonCs.setOnClickListener {
-      tolgee.setLocale("cs")
-      tolgee.preload(this)
-    }
+
   }
 
   override fun onStart() {
@@ -66,5 +56,6 @@ class MainActivity : ComponentActivity() {
     // Make sure the translations are loaded
     // This function will initiate translations fetching in the background and
     // will trigger changeFlow whenever updated translations are available
+    tolgee.preload(this)
   }
 }
